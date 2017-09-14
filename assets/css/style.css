@@ -1,0 +1,47 @@
+h1 {
+	font-family: helvetica;
+	font-size: 40px;
+	text-align: center;
+}
+
+.jumbotron {
+	margin-top: 40px;
+}
+
+h2 {
+	font-family: helvetica;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 50px;
+}
+
+#random-number {
+	font-family: helvetica;
+	font-size: 50px;
+	text-align: left;
+	margin-top: 30px;
+}
+
+#your-score {
+	font-family: helvetica;
+	font-size: 50px;
+	text-align: left;
+	margin-top: 30px;
+}
+
+#crystal1 {
+	height: 190px;
+}
+
+#crystal2 {
+	height: 170px;
+}
+
+#crystal3 {
+	height: 190px;
+}
+
+#crystal4 {
+	height: 220px;
+}
