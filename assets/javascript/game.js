@@ -1,8 +1,22 @@
 $(document).ready(function() {
 
+	// defining global variables
+
+	var counter = 0
+	var yourScore = 0
+	var wins = 0
+	var losses = 0
+	var targetScore;
+	var scoreOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	var yourScore = [];
+	var crystal1;
+	var crystal2;
+	var crystal3;
+	var crystal4;
+
 	// function that generates a random number each time the page loads (set min and max)
 
-	function randomNumber() {
+	function targetScore() {
 		var min=20;
 		var max=100;
 		return Math.floor(Math.random()*(max-min+1) + min);
@@ -10,35 +24,92 @@ $(document).ready(function() {
 
 	// append random number to "#random-number"
 
-	$("#random-number").append(randomNumber);
+	$("#random-number").text(targetScore);
 
+	// function crystalScore that assigned a score to each crystal 
 
-	// counter to keep track of score
-	var counter = 0
+	function crystalScore() {
 
-	// function that generates random number between 1 and 5
-	function randomScore() {
-		var min=1;
-		var max=5;
-		return Math.floor(Math.random()*(max-min+1) +min);
+		for (var i = 0; i < scoreOptions.length; i++) {
+			yourScore[i] = scoreOptions[Math.floor(Math.random() * scoreOptions.length)];
+			console.log(yourScore[i]);
+		}
+
+		// attributing above generated random score to each crystal id and then assigning it to its variable
+		$("#crystal1").attr("value", yourScore[0]);
+		crystal1 = $("#crystal1").attr("value");
+		crystal1 = parseInt(crystal1);
+		console.log(crystal1);
+
+		$("#crystal2").attr("value", yourScore[1]);
+		crystal2 = $("#crystal2").attr("value");
+		crystal1 = parseInt(crystal2);
+		console.log(crystal2);
+
+		$("#crystal3").attr("value", yourScore[2]);
+		crystal3 = $("#crystal3").attr("value");
+		crystal1 = parseInt(crystal3);
+		console.log(crystal3);	
+		
+		$("#crystal4").attr("value", yourScore[3]);
+		crystal4 = $("#crystal4").attr("value");
+		crystal1 = parseInt(crystal4);
+		console.log(crystal4);	
+
 	}
 
-	// add on-listener to each element with class ".crystal"
-	// assign randomScore to crystal image 
-	// when crystal is clicked, increase counter by its randomScore attribute
-	// convert randomScore to integer value so that it can be added to the score
+	crystalScore();
 
-	$(".crystal").on("click", function() {
+	// add on-click listener to each element with class ".crystal"
+	$("#crystal1").on("click", function() {
+	// counter to increase by the value of yourScore assigned to the clicked crystal
+		counter += crystal1;
+	// append counter to "#your-score" div
+		$("#your-score").text(counter);
 
-		crystal.attr("crystalScore",randomScore);
-
-		var crystalValue = ($(this).attr("crystalScore"));
-	    crystalValue = parseInt(crystalValue);
-
-	    console.log(crystalValue);
-	    counter += crystalValue;
+		if (counter === targetScore) {
+			wins ++
+			$("wins").text(wins);
+		}
 	})
 
-	$("your-score").append(crystalValue);
+	$("#crystal2").on("click", function() {
+		counter += crystal2;
+		$("#your-score").text(counter);
+
+		if (counter === targetScore) {
+			wins ++
+			$("wins").text(wins);
+		}
+	})
+
+	$("#crystal3").on("click", function() {
+		counter += crystal3;
+		$("#your-score").text(counter);
+
+		if (counter === targetScore) {
+			wins ++
+			$("wins").text(wins);
+		}		
+	})
+
+	$("#crystal4").on("click", function() {
+		counter += crystal4;
+		$("#your-score").text(counter);
+		
+		if (counter === targetScore) {
+			wins ++
+			$("wins").text(wins);
+		}
+	})	
+
+	// function randomScore() {
+	// 	var min=1;
+	// 	var max=5;
+	// 	return Math.floor(Math.random()*(max-min+1) +min);}
+
+	// crystal.attr("crystalScore", randomScore);
+
+
 
 });
