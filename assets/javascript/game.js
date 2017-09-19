@@ -66,8 +66,14 @@ $(document).ready(function() {
 
 		if (counter === targetScore) {
 			wins ++
-			$("wins").text(wins);
+			$("#wins").text("Wins: " + wins);
 		}
+
+		else if (counter >= targetScore) {
+			losses++
+			$("#losses").text("Losses: " + losses);
+		}
+
 	});
 
 	$("#crystal2").on("click", function() {
@@ -76,8 +82,14 @@ $(document).ready(function() {
 
 		if (counter === targetScore) {
 			wins ++
-			$("wins").text(wins);
+			$("#wins").text("Wins: " + wins);
 		}
+
+		else if (counter >= targetScore) {
+			losses++
+			$("#losses").text("Losses: " + losses);
+		}
+
 	});
 
 	$("#crystal3").on("click", function() {
@@ -86,8 +98,14 @@ $(document).ready(function() {
 
 		if (counter === targetScore) {
 			wins ++
-			$("wins").text(wins);
+			$("#wins").text("Wins: " + wins);
 		}
+
+		else if (counter >= targetScore) {
+			losses++
+			$("#losses").text("Losses: " + losses);
+		}
+
 	});
 
 	$("#crystal4").on("click", function() {
@@ -96,46 +114,15 @@ $(document).ready(function() {
 
 		if (counter === targetScore) {
 			wins ++
-			$("wins").text(wins);
+			$("#wins").text("Wins: " + wins);
 		}
+
+		else if (counter >= targetScore) {
+			losses++
+			$("#losses").text("Losses: " + losses);
+		}
+
 	});
-
-	// $("#crystal2").on("click", function() {
-	// 	counter += crystal2;
-	// 	$("#your-score").text(counter);
-
-	// 	if (counter === targetScore) {
-	// 		wins ++
-	// 		$("wins").text(wins);
-	// 	}
-	// });
-
-	// $("#crystal3").on("click", function() {
-	// 	counter += crystal3;
-	// 	$("#your-score").text(counter);
-
-	// 	if (counter === targetScore) {
-	// 		wins ++
-	// 		$("wins").text(wins);
-	// 	}		
-	// });
-
-	// $("#crystal4").on("click", function() {
-	// 	counter += crystal4;
-	// 	$("#your-score").text(counter);
-
-	// 	if (counter === targetScore) {
-	// 		wins ++
-	// 		$("wins").text(wins);
-	// 	}
-	// });	
-
-	// function randomScore() {
-	// 	var min=1;
-	// 	var max=5;
-	// 	return Math.floor(Math.random()*(max-min+1) +min);}
-
-	// crystal.attr("crystalScore", randomScore);
 
 
 });
