@@ -6,7 +6,6 @@ $(document).ready(function() {
 	var yourScore = 0
 	var wins = 0
 	var losses = 0
-	var targetScore;
 	var scoreOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 	var yourScore = [];
 	var crystal1;
@@ -16,11 +15,7 @@ $(document).ready(function() {
 
 	// function that generates a random number each time the page loads (set min and max)
 
-	function targetScore() {
-		var min=20;
-		var max=100;
-		return Math.floor(Math.random()*(max-min+1) + min);
-	}
+	var targetScore = Math.floor(Math.random()*(100-20+1) + 20);
 
 	// append random number to "#random-number"
 
@@ -38,27 +33,29 @@ $(document).ready(function() {
 		// attributing above generated random score to each crystal id and then assigning it to its variable
 		$("#crystal1").attr("value", yourScore[0]);
 		crystal1 = $("#crystal1").attr("value");
+		// convert string to integer 
 		crystal1 = parseInt(crystal1);
 		console.log(crystal1);
 
 		$("#crystal2").attr("value", yourScore[1]);
 		crystal2 = $("#crystal2").attr("value");
-		crystal1 = parseInt(crystal2);
+		crystal2 = parseInt(crystal2);
 		console.log(crystal2);
 
 		$("#crystal3").attr("value", yourScore[2]);
 		crystal3 = $("#crystal3").attr("value");
-		crystal1 = parseInt(crystal3);
+		crystal3 = parseInt(crystal3);
 		console.log(crystal3);	
 		
 		$("#crystal4").attr("value", yourScore[3]);
 		crystal4 = $("#crystal4").attr("value");
-		crystal1 = parseInt(crystal4);
+		crystal4 = parseInt(crystal4);
 		console.log(crystal4);	
 
 	}
 
 	crystalScore();
+
 
 	// add on-click listener to each element with class ".crystal"
 	$("#crystal1").on("click", function() {
@@ -71,7 +68,7 @@ $(document).ready(function() {
 			wins ++
 			$("wins").text(wins);
 		}
-	})
+	});
 
 	$("#crystal2").on("click", function() {
 		counter += crystal2;
@@ -81,7 +78,7 @@ $(document).ready(function() {
 			wins ++
 			$("wins").text(wins);
 		}
-	})
+	});
 
 	$("#crystal3").on("click", function() {
 		counter += crystal3;
@@ -90,18 +87,48 @@ $(document).ready(function() {
 		if (counter === targetScore) {
 			wins ++
 			$("wins").text(wins);
-		}		
-	})
+		}
+	});
 
 	$("#crystal4").on("click", function() {
 		counter += crystal4;
 		$("#your-score").text(counter);
-		
+
 		if (counter === targetScore) {
 			wins ++
 			$("wins").text(wins);
 		}
-	})	
+	});
+
+	// $("#crystal2").on("click", function() {
+	// 	counter += crystal2;
+	// 	$("#your-score").text(counter);
+
+	// 	if (counter === targetScore) {
+	// 		wins ++
+	// 		$("wins").text(wins);
+	// 	}
+	// });
+
+	// $("#crystal3").on("click", function() {
+	// 	counter += crystal3;
+	// 	$("#your-score").text(counter);
+
+	// 	if (counter === targetScore) {
+	// 		wins ++
+	// 		$("wins").text(wins);
+	// 	}		
+	// });
+
+	// $("#crystal4").on("click", function() {
+	// 	counter += crystal4;
+	// 	$("#your-score").text(counter);
+
+	// 	if (counter === targetScore) {
+	// 		wins ++
+	// 		$("wins").text(wins);
+	// 	}
+	// });	
 
 	// function randomScore() {
 	// 	var min=1;
@@ -109,7 +136,6 @@ $(document).ready(function() {
 	// 	return Math.floor(Math.random()*(max-min+1) +min);}
 
 	// crystal.attr("crystalScore", randomScore);
-
 
 
 });
